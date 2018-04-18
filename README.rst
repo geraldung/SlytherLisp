@@ -10,7 +10,7 @@ SlytherLisp
    this value in various places.
 
 :Implemented By:
-   Your Name <youruser@mines.edu>
+   Gerald Ung <geraldung@mines.edu>
 :Deliverable: 1
 
 SlytherLisp is a lexically-scoped Scheme-like Lisp dialect for the Language

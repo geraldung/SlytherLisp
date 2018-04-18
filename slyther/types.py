@@ -16,7 +16,9 @@ class ConsCell:
     4
     """
     def __init__(self, car, cdr):
-        raise NotImplementedError("Deliverable 1")
+        self.car = car
+        self.cdr = cdr
+    #    raise NotImplementedError("Deliverable 1")
 
     def __eq__(self, other):
         """
@@ -38,7 +40,11 @@ class ConsCell:
         >>> a == d
         True
         """
-        raise NotImplementedError("Deliverable 1")
+        if (self.car == other.car and self.cdr == other.cdr):
+            return True
+        else:
+            return False
+    #    raise NotImplementedError("Deliverable 1")
 
     def __repr__(self):
         """
@@ -55,7 +61,8 @@ class ConsCell:
             The string formatting specifier ``!r`` will get you the
             ``repr`` of an object.
         """
-        raise NotImplementedError("Deliverable 1")
+        return "(cons " + str(self.car) + " " + str(self.cdr) +")"
+    #    raise NotImplementedError("Deliverable 1")
 
 
 class ConsList(ConsCell, abc.Sequence):
@@ -81,7 +88,13 @@ class ConsList(ConsCell, abc.Sequence):
         >>> cell.cdr
         NIL
         """
-        raise NotImplementedError("Deliverable 1")
+        self.car = car
+        if (cdr is None):
+            self.cdr = NIL
+        elif isinstance(cdr, ConsList):
+            self.cdr = cdr
+        else:
+            raise TypeError("cdr must be a ConsList")
 
     @classmethod
     def from_iterable(cls, it):
@@ -93,7 +106,17 @@ class ConsList(ConsCell, abc.Sequence):
         >>> ConsList.from_iterable([])
         NIL
         """
-        raise NotImplementedError("Deliverable 1")
+        if(it == []):
+            return NIL
+        else:
+            for i in it:
+                if(cls is NIL):
+                    cls = (ConsList(car, NIL))
+                else:
+                    cls
+
+
+        #raise NotImplementedError("Deliverable 1")
 
     def __getitem__(self, idx):
         """
@@ -104,7 +127,8 @@ class ConsList(ConsCell, abc.Sequence):
         >>> [lst[i] == clst[i] for i in range(len(lst))]
         [True, True, True, True, True, True]
         """
-        raise NotImplementedError("Deliverable 1")
+
+    #    raise NotImplementedError("Deliverable 1")
 
     def __iter__(self):
         """
@@ -147,7 +171,15 @@ class ConsList(ConsCell, abc.Sequence):
         >>> len(ConsList.from_iterable(lst))
         6
         """
-        raise NotImplementedError("Deliverable 1")
+        count = 0
+
+        '''for i in self:
+            count = len(self)
+
+        print(len)
+        return len
+        '''
+        #raise NotImplementedError("Deliverable 1")
 
     def __contains__(self, p):
         """
